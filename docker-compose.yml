@@ -12,7 +12,8 @@ services:
       DOMAINS: >-
         kaizumaki.net -> http://c4c:8000,
         mail.kaizumaki.net,
-        test.kaizumaki.net -> http://wp
+        happy-valentine.kaizumaki.net -> http://happy-valentine:8001
+#        test.kaizumaki.net -> http://wp
       STAGE: 'production'
 #      FORCE_RENEW: 'true'
     volumes:
@@ -20,11 +21,12 @@ services:
       - ./ssl-certs:/var/lib/https-portal
       - ../create-dialogue-django/static:/var/www/vhosts/kaizumaki.net/static
       - ../create-dialogue-django/nginx/ssl/ssl.conf:/var/lib/nginx-conf/kaizumaki.net.ssl.conf.erb:ro
-      - ../saa/wordpress:/var/www/vhosts/test.kaizumaki.net
+#      - ../saa/wordpress:/var/www/vhosts/test.kaizumaki.net
     networks:
       - default
-      - saa_default
+#      - saa_default
       - createdialoguedjango_default
+      - happyvalentine_default
 
   mail:
     image: tvial/docker-mailserver:latest
@@ -53,11 +55,13 @@ services:
       - SYS_PTRACE
     networks:
       - default
-      - saa_default
+#      - saa_default
       - createdialoguedjango_default
 
 networks:
-  saa_default:
-    external: true
+#  saa_default:
+#    external: true
   createdialoguedjango_default:
+    external: true
+  happyvalentine_default:
     external: true
