@@ -21,6 +21,7 @@ services:
       - ./ssl-certs:/var/lib/https-portal
       - ../create-dialogue-django/static:/var/www/vhosts/kaizumaki.net/static
       - ../create-dialogue-django/nginx/ssl/ssl.conf:/var/lib/nginx-conf/kaizumaki.net.ssl.conf.erb:ro
+      - ../happy-valentine/html:/var/www/vhosts/happy-valentine.kaizumaki.net
 #      - ../saa/wordpress:/var/www/vhosts/test.kaizumaki.net
     networks:
       - default
