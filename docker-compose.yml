@@ -10,10 +10,10 @@ services:
     restart: always
     environment:
       DOMAINS: >-
-        kaizumaki.net -> http://c4c:8000,
         mail.kaizumaki.net,
-        happy-valentine.kaizumaki.net -> http://happy-valentine:8001,
-        test.kaizumaki.net -> http://wp
+        happy-valentine.kaizumaki.net
+#        kaizumaki.net -> http://c4c:8000,
+#        test.kaizumaki.net -> http://wp
       STAGE: 'production'
 #      FORCE_RENEW: 'true'
     volumes:
