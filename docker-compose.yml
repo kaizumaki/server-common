@@ -10,7 +10,7 @@ services:
     restart: always
     environment:
       DOMAINS: >-
-        kaizumaki.net -> http://c4c:8000,
+#        kaizumaki.net -> http://c4c:8000,
         mail.kaizumaki.net,
         happy-valentine.kaizumaki.net -> http://happy-valentine:8001
 #        test.kaizumaki.net -> http://wp
@@ -19,14 +19,14 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./ssl-certs:/var/lib/https-portal
-      - ../create-dialogue-django/static:/var/www/vhosts/kaizumaki.net/static
-      - ../create-dialogue-django/nginx/ssl/ssl.conf:/var/lib/nginx-conf/kaizumaki.net.ssl.conf.erb:ro
+#      - ../create-dialogue-django/static:/var/www/vhosts/kaizumaki.net/static
+#      - ../create-dialogue-django/nginx/ssl/ssl.conf:/var/lib/nginx-conf/kaizumaki.net.ssl.conf.erb:ro
       - ../happy-valentine/html:/var/www/vhosts/happy-valentine.kaizumaki.net
 #      - ../saa/wordpress:/var/www/vhosts/test.kaizumaki.net
     networks:
       - default
 #      - saa_default
-      - createdialoguedjango_default
+#      - createdialoguedjango_default
       - happyvalentine_default
 
   mail:
@@ -57,12 +57,12 @@ services:
     networks:
       - default
 #      - saa_default
-      - createdialoguedjango_default
+#      - createdialoguedjango_default
 
 networks:
 #  saa_default:
 #    external: true
-  createdialoguedjango_default:
-    external: true
+#  createdialoguedjango_default:
+#    external: true
   happyvalentine_default:
     external: true
