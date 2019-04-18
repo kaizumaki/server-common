@@ -11,7 +11,8 @@ services:
     environment:
       DOMAINS: >-
         mail.kaizumaki.net,
-        happy-valentine.kaizumaki.net
+        happy-valentine.kaizumaki.net,
+        yakushima.kaizumaki.net
 #        kaizumaki.net -> http://c4c:8000,
 #        test.kaizumaki.net -> http://wp
       STAGE: 'production'
@@ -19,9 +20,10 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./ssl-certs:/var/lib/https-portal
+      - ../happy-valentine/html:/var/www/vhosts/happy-valentine.kaizumaki.net
+      - ../yakushima/html:/var/www/vhosts/yakushima.kaizumaki.net
 #      - ../create-dialogue-django/static:/var/www/vhosts/kaizumaki.net/static
 #      - ../create-dialogue-django/nginx/ssl/ssl.conf:/var/lib/nginx-conf/kaizumaki.net.ssl.conf.erb:ro
-      - ../happy-valentine/html:/var/www/vhosts/happy-valentine.kaizumaki.net
 #      - ../saa/wordpress:/var/www/vhosts/test.kaizumaki.net
     networks:
       - default
